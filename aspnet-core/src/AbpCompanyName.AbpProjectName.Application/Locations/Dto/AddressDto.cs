@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Domain.Entities;
-using Abp.Domain.Values;
-using AbpCompanyName.AbpProjectName.Locations;
-namespace AbpCompanyName.AbpProjectName.Addresses
+using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using AbpCompanyName.AbpProjectName.Addresses;
+using AbpCompanyName.AbpProjectName.Locations.Dto;
+
+namespace AbpCompanyName.AbpProjectName.Locations
 {
-    public class Address : Entity
+    [AutoMap(typeof(Address))]
+    public class AddressDto : EntityDto
     {
         public int? CityId
         {
@@ -17,19 +16,13 @@ namespace AbpCompanyName.AbpProjectName.Addresses
             set;
         }
 
-        public City City
+        public CityDto City
         {
             get;
             set;
         }
 
-        public int? StateProvinceId
-        {
-            get;
-            set;
-        }
-
-        public StateProvince StateProvince
+        public string StateProvince
         {
             get;
             set;
@@ -96,7 +89,7 @@ namespace AbpCompanyName.AbpProjectName.Addresses
 
         public long? Longitude
         {
-            get; 
+            get;
             set;
         }
     }

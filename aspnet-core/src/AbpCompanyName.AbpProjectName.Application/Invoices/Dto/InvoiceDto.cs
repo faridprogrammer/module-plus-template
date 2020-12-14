@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Abp.Domain.Entities;
+using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
 using AbpCompanyName.AbpProjectName.Addresses;
-using AbpCompanyName.AbpProjectName.Authorization.Users;
+using AbpCompanyName.AbpProjectName.Locations;
+using AbpCompanyName.AbpProjectName.Users.Dto;
 
-namespace AbpCompanyName.AbpProjectName.Invoices
+namespace AbpCompanyName.AbpProjectName.Invoices.Dto
 {
-    public class Invoice : Entity
+    [AutoMap(typeof(Invoice))]
+    public class InvoiceDto : EntityDto
     {
-        public string Number 
+        public string Number
         {
             get;
             set;
@@ -28,13 +31,7 @@ namespace AbpCompanyName.AbpProjectName.Invoices
             set;
         }
 
-        public User Customer
-        {
-            get;
-            set;
-        }
-
-        public IEnumerable<InvoiceItem> InvoiceItems
+        public UserDto Customer
         {
             get;
             set;
@@ -46,7 +43,7 @@ namespace AbpCompanyName.AbpProjectName.Invoices
             set;
         }
 
-        public Address Address
+        public AddressDto Address
         {
             get;
             set;

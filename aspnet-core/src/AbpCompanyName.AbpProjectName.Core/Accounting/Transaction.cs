@@ -1,58 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
-using Abp.Domain.Entities;
-using AbpCompanyName.AbpProjectName.Addresses;
+using Abp.Domain.Entities.Auditing;
 using AbpCompanyName.AbpProjectName.Authorization.Users;
 
-namespace AbpCompanyName.AbpProjectName.Invoices
+namespace AbpCompanyName.AbpProjectName.Accounting
 {
-    public class Invoice : Entity
+    public class Transaction : FullAuditedEntity
     {
-        public string Number 
-        {
-            get;
-            set;
-        }
-        public DateTime DueDate
+        public long OwnerId
         {
             get;
             set;
         }
 
-        public long CustomerId
+        public User Owner
         {
             get;
             set;
         }
 
-        public User Customer
+        public decimal CreditAmount
         {
             get;
             set;
         }
 
-        public IEnumerable<InvoiceItem> InvoiceItems
+        public decimal DebitAmount
         {
             get;
             set;
         }
 
-        public int? AddressId
+        public TransactionReason Reason
         {
             get;
             set;
         }
 
-        public Address Address
-        {
-            get;
-            set;
-        }
-
+        [MaxLength(200)]
         public string Description
+        {
+            get;
+            set;
+        }
+
+        public string ReferenceEntityId
         {
             get;
             set;
