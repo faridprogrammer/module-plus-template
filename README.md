@@ -1,36 +1,34 @@
 # Important
 
-Issues of this repository are tracked on https://github.com/aspnetboilerplate/aspnetboilerplate. Please create your issues on https://github.com/aspnetboilerplate/aspnetboilerplate/issues.
+This repository is based on original **ASP.NET Core MVC / Angular startup** template [here](https://github.com/aspnetboilerplate/module-zero-core-template).
 
 # Introduction
 
-This is a template to create **ASP.NET Core MVC / Angular** based startup projects for [ASP.NET Boilerplate](https://aspnetboilerplate.com/Pages/Documents). It has 2 different versions:
+This is a template to create **ASP.NET Core MVC / Angular** based startup projects for [ASP.NET Boilerplate](https://aspnetboilerplate.com/Pages/Documents). 
 
-1. [ASP.NET Core MVC & jQuery](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core) (server rendered multi-page application).
-2. [ASP.NET Core & Angular](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular) (single page application).
- 
-User Interface is based on [AdminLTE theme](https://github.com/ColorlibHQ/AdminLTE).
- 
-# Download
+User Interface is based on [AdminLTE theme](https://github.com/ColorlibHQ/AdminLTE). 
 
-Create & download your project from https://aspnetboilerplate.com/Templates
+# Features
 
-# Screenshots
+### Ready to use entity models
 
-#### Sample Dashboard Page
-![](_screenshots/module-zero-core-template-ui-home.png)
+1. Basic accounting transactions
+2. Invoices and invoice items
+3. Payments
+4. Countries
+5. State provinces
+6. Cities
+7. Addresses
 
-#### User Creation Modal
-![](_screenshots/module-zero-core-template-ui-user-create-modal.png)
+### Ready to use application services 
 
-#### Login Page
+There is already implemented simple `CrudApplicationService` for each of entities above. 
 
-![](_screenshots/module-zero-core-template-ui-login.png)
+You can learn about application services [here](https://aspnetboilerplate.com/Pages/Documents/Application-Services)
 
-# Documentation
+### Basic CRUD user interface for all existing entity models
 
-* [ASP.NET Core MVC & jQuery version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Core)
-* [ASP.NET Core & Angular  version.](https://aspnetboilerplate.com/Pages/Documents/Zero/Startup-Template-Angular)
+(Under construction)
 
 # License
 

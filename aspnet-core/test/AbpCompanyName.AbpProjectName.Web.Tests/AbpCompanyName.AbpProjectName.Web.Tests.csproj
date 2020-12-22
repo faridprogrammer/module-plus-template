@@ -13,7 +13,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\AbpCompanyName.AbpProjectName.Web.Mvc\AbpCompanyName.AbpProjectName.Web.Mvc.csproj" />
       <ProjectReference Include="..\AbpCompanyName.AbpProjectName.Tests\AbpCompanyName.AbpProjectName.Tests.csproj" />
     </ItemGroup>
 
