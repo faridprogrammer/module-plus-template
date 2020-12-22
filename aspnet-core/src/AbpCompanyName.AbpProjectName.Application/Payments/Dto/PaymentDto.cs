@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Abp.Domain.Entities;
-using AbpCompanyName.AbpProjectName.Authorization.Users;
-using AbpCompanyName.AbpProjectName.Invoices;
+using Abp.Application.Services.Dto;
+using AbpCompanyName.AbpProjectName.Invoices.Dto;
+using AbpCompanyName.AbpProjectName.Users.Dto;
 
-namespace AbpCompanyName.AbpProjectName.Payments
+namespace AbpCompanyName.AbpProjectName.Payments.Dto
 {
-    public class Payment : Entity<Guid>
+    public class PaymentDto: EntityDto<Guid>
     {
         public PaymentType Type
         {
@@ -35,13 +35,13 @@ namespace AbpCompanyName.AbpProjectName.Payments
             set;
         }
 
-        public long OwnerId
+        public long CustomerId
         {
             get; 
             set;
         }
         
-        public User Owner
+        public UserDto Customer
         {
             get;
             set;
@@ -59,7 +59,7 @@ namespace AbpCompanyName.AbpProjectName.Payments
             set;
         }
 
-        public Invoice Invoice
+        public InvoiceDto Invoice
         {
             get;
             set;

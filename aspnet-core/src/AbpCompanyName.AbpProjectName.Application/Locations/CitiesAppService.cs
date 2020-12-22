@@ -7,6 +7,7 @@ using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.Linq.Extensions;
+using AbpCompanyName.AbpProjectName.Authorization;
 using AbpCompanyName.AbpProjectName.Locations.Dto;
 
 namespace AbpCompanyName.AbpProjectName.Locations
@@ -15,6 +16,10 @@ namespace AbpCompanyName.AbpProjectName.Locations
     {
         public CitiesAppService(IRepository<City, int> repository) : base(repository)
         {
+            GetAllPermissionName = PermissionNames.Pages_Cities;
+            CreatePermissionName = PermissionNames.Pages_Cities_Create;
+            UpdatePermissionName = PermissionNames.Pages_Cities_Edit;
+            DeletePermissionName = PermissionNames.Pages_Cities_Delete;
         }
 
         protected override IQueryable<City> CreateFilteredQuery(GetAllCitiesDto input)

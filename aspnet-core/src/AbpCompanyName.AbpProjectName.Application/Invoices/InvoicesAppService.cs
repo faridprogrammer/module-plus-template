@@ -9,6 +9,7 @@ using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Abp.Extensions;
 using Abp.Linq.Extensions;
+using AbpCompanyName.AbpProjectName.Authorization;
 using AbpCompanyName.AbpProjectName.Invoices.Dto;
 
 namespace AbpCompanyName.AbpProjectName.Invoices
@@ -18,6 +19,10 @@ namespace AbpCompanyName.AbpProjectName.Invoices
     {
         public InvoicesAppService(IRepository<Invoice, int> repository) : base(repository)
         {
+            GetAllPermissionName = PermissionNames.Pages_Invoices;
+            CreatePermissionName = PermissionNames.Pages_Invoices_Create;
+            UpdatePermissionName = PermissionNames.Pages_Invoices_Edit;
+            DeletePermissionName = PermissionNames.Pages_Invoices_Delete;
         }
 
         protected override IQueryable<Invoice> CreateFilteredQuery(GetAllInvoiceDto input)
