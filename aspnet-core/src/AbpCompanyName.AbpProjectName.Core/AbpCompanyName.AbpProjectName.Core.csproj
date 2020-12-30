@@ -23,4 +23,8 @@
     <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Products\" />
+  </ItemGroup>
+
 </Project>
