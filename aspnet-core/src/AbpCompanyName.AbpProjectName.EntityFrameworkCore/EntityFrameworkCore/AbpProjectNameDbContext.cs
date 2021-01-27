@@ -25,6 +25,11 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore
         //public DbSet<Address> MpAddresses { get; set; }
         //public DbSet<Payment> MpPayments { get; set; }
 
+        public DbSet<Logs.Log> Logs
+        {
+            get;
+            set;
+        }
 
         public AbpProjectNameDbContext(DbContextOptions<AbpProjectNameDbContext> options)
             : base(options)

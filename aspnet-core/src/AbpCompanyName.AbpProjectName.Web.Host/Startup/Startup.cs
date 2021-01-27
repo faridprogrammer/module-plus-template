@@ -112,8 +112,7 @@ namespace AbpCompanyName.AbpProjectName.Web.Host.Startup
             return services.AddAbp<AbpProjectNameWebHostModule>(
                 // Configure Log4Net logging
                 options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
-                    f => f.UseAbpLog4Net().WithConfig("log4net.config")
-                )
+                    f => f.UseAbpLog4Net().WithConfig("log4net.config"))
             );
         }
 
