@@ -48,5 +48,7 @@
         public const string Pages_Transactions_Delete = "Pages.Transactions.Delete";
 
         public const string Pages_Logs = "Pages.Logs";
+
+        public const string Pages_AuditLogs = "Pages.AuditLogs";
     }
 }

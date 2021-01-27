@@ -50,6 +50,7 @@ namespace AbpCompanyName.AbpProjectName.Authorization
             context.CreatePermission(PermissionNames.Pages_Transactions_Delete, L("DeleteTransactions"));
 
             context.CreatePermission(PermissionNames.Pages_Logs, L("Logs"));
+            context.CreatePermission(PermissionNames.Pages_AuditLogs, L("AuditLogs"));
         }
 
         private static ILocalizableString L(string name)
