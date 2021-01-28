@@ -1,6 +1,6 @@
 # Important
 
-This repository is based on original **ASP.NET Core MVC / Angular startup** template [here](https://github.com/aspnetboilerplate/module-zero-core-template).
+This repository is based on the original **ASP.NET Core MVC / Angular startup** template [here](https://github.com/aspnetboilerplate/module-zero-core-template).
 
 # Introduction
 
@@ -20,11 +20,39 @@ User Interface is based on [AdminLTE theme](https://github.com/ColorlibHQ/AdminL
 6. Cities
 7. Addresses
 
+### Notes on entities
+
+In order to make the entities simpler, I have had some assumptions regarding entities. 
+
+1. There is no Foreign Key implemented in entities. Though there are referencing Id columns in related entities as needed.
+2. Entity Id in all entities are `Guid`
+
+
 ### Ready to use application services 
 
-There is already implemented simple `CrudApplicationService` for each of entities above. 
+There is already implemented simple `AsyncCrudApplicationService` for each of the entities above. As following:
+
+1. `TransactionsAppService`
+2. `InvoicesAppService`
+3. `InvoiceItemsAppService`
+4. `Countries`
+5. `AddressesAppService`
+6. `CitiesAppService`
+7. `CountriesAppService`
+8. `StateProvincesAppService`
+9. `PaymentsAppService`
 
 You can learn about application services [here](https://aspnetboilerplate.com/Pages/Documents/Application-Services)
+
+
+### Store logs in database
+
+In the log4net configuration, I have added and `AdoNetAppender` which adds logs to a table named `MpLogs`. There is also an application service implemented to query the `MpLogs` table.
+
+### Application services for already existing stuff
+
+1. Application service for query the logs (`LogsAppService`)
+2. Application service for query audit logs (`AuditLogsAppService`)
 
 ### Basic CRUD user interface for all existing entity models
 
