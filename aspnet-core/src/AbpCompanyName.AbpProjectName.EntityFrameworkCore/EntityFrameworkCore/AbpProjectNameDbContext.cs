@@ -13,17 +13,14 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore
 {
     public class AbpProjectNameDbContext : AbpZeroDbContext<Tenant, Role, User, AbpProjectNameDbContext>
     {
-        /* Define a DbSet for each entity of the application
-           Or uncomment an existing DbSet to use an already existing entity.*/
-
-        //public DbSet<Transaction> MpTransactions { get; set; }
-        //public DbSet<Invoice> MpInvoices { get; set; }
-        //public DbSet<InvoiceItem> MpInvoiceItems { get; set; }
-        //public DbSet<Country> MpCountries { get; set; }
-        //public DbSet<StateProvince> MpStateProvinces { get; set; }
-        //public DbSet<City> MpCities { get; set; }
-        //public DbSet<Address> MpAddresses { get; set; }
-        //public DbSet<Payment> MpPayments { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<InvoiceItem> InvoiceItems { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<StateProvince> StateProvinces { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         public DbSet<Logs.Log> Logs
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using AbpCompanyName.AbpProjectName.Invoices;
 
 namespace AbpCompanyName.AbpProjectName.Payments
 {
+    [Table("MpPayments")]
     public class Payment : Entity<Guid>
     {
         public PaymentType Type

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -10,6 +11,7 @@ using AbpCompanyName.AbpProjectName.Authorization.Users;
 
 namespace AbpCompanyName.AbpProjectName.Accounting
 {
+    [Table("MpTransactions")]
     public class Transaction : FullAuditedEntity
     {
         public long OwnerId

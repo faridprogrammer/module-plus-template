@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using Abp.Domain.Values;
 using AbpCompanyName.AbpProjectName.Locations;
 namespace AbpCompanyName.AbpProjectName.Addresses
 {
+    [Table("MpAddresses")]
     public class Address : Entity
     {
         public int? CityId
