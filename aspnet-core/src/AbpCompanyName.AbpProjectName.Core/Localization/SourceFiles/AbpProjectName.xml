@@ -118,5 +118,7 @@
     <text name="ResetPasswordStepTwoInfo">2. Copy this random password so you can send it to the user</text>
     <text name="UsersActivation">Users activation</text>
     <text name="YouShouldLoginWithTenantInOrderToMakeThisChange">You should login with tenant in order to make this change</text>
+    <text name="Logs">Application logs</text>
+
   </texts>
 </localizationDictionary>

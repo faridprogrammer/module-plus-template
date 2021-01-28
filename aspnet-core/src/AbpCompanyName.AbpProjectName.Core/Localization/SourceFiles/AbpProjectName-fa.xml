@@ -118,5 +118,6 @@
     <text name="ResetPasswordStepTwoInfo">2. رمز تصادفی را کپی کنید تا آن را برای کاربر ارسال نمایید</text>
     <text name="UsersActivation">فعالسازی کاربران</text>
     <text name="YouShouldLoginWithTenantInOrderToMakeThisChange">برای اعمال این تغییر باید در یک Tenant لاگین کنید.</text>
+    <text name="Logs">لاگ‌های برنامه</text>
   </texts>
 </localizationDictionary>
