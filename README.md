@@ -54,9 +54,10 @@ In the log4net configuration, I have added and `AdoNetAppender` which adds logs 
 1. Application service for query the logs (`LogsAppService`)
 2. Application service for query audit logs (`AuditLogsAppService`)
 
-### Basic CRUD user interface for all existing entity models
+### Basic user interface for all existing entity models
 
-(Under construction)
+1. Application logs
+2. ... (Under construction)
 
 # License
 
