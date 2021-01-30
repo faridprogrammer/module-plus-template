@@ -26,7 +26,8 @@ namespace AbpCompanyName.AbpProjectName.Logs
         {
             return base.CreateFilteredQuery(input)
                 .WhereIf(!input.Level.IsNullOrEmpty(), log => log.Level.ToLower() == input.Level.ToLower())
-                .WhereIf(!input.Message.IsNullOrEmpty(), log => log.Message.ToLower().Contains(input.Message.ToLower()));
+                .WhereIf(!input.Message.IsNullOrEmpty(), log => log.Message.ToLower().Contains(input.Message.ToLower()))
+                .OrderByDescending(log => log.Id);
         }
 
         public override Task<LogDto> CreateAsync(LogDto input)

@@ -30,7 +30,8 @@ namespace AbpCompanyName.AbpProjectName.AuditLogs
                 .WhereIf(input.UserId != null, log => log.UserId == input.UserId.Value)
                 .WhereIf(!input.ClientIpAddress.IsNullOrEmpty(), log => log.ClientIpAddress == input.ClientIpAddress)
                 .WhereIf(!input.MethodName.IsNullOrEmpty(), log => log.MethodName.ToLower().Contains(input.MethodName))
-                .WhereIf(!input.ServiceName.IsNullOrEmpty(), log => log.ServiceName.ToLower().Contains(input.ServiceName));
+                .WhereIf(!input.ServiceName.IsNullOrEmpty(), log => log.ServiceName.ToLower().Contains(input.ServiceName))
+                .OrderByDescending(log => log.Id);
         }
 
         public override Task<AuditLogDto> CreateAsync(AuditLogDto input)

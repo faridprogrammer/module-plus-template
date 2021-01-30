@@ -57,6 +57,15 @@ namespace AbpCompanyName.AbpProjectName.Web.Startup
                         icon: "fas fa-theater-masks",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Logs),
                         order: 5
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.AuditLogs,
+                        L("AuditLogs"),
+                        url: "AuditLogs",
+                        icon: "fas fa-theater-masks",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_AuditLogs),
+                        order: 6
                     ));
         }
 

@@ -119,6 +119,17 @@
     <text name="UsersActivation">Users activation</text>
     <text name="YouShouldLoginWithTenantInOrderToMakeThisChange">You should login with tenant in order to make this change</text>
     <text name="Logs">Application logs</text>
-
+    <text name="AuditLogs">Application audit logs</text>
+    <text name="ServiceName">Service name</text>
+    <text name="MethodName">Method name</text>
+    <text name="ClientIpAddress">Client Ip address</text>
+    <text name="Parameters">Parameters</text>
+    <text name="ReturnValue">Return value</text>
+    <text name="ExecutionTime">Execution time</text>
+    <text name="ExecutionDuration">Execution duration</text>
+    <text name="BrowserInfo">Browser info</text>
+    <text name="Exception">Exception</text>
+    <text name="TenantId">Tenant Id</text>
+    <text name="UserId">User Id</text>
   </texts>
 </localizationDictionary>

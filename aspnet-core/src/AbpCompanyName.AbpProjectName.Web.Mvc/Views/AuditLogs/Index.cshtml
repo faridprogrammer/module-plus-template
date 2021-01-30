@@ -1,22 +1,22 @@
 ﻿@using AbpCompanyName.AbpProjectName.Web.Startup
 @model AbpCompanyName.AbpProjectName.Web.Models.Roles.RoleListViewModel
-@{ ViewBag.Title = L("Logs");
-    ViewBag.CurrentPageName = PageNames.Logs; }
+@{ ViewBag.Title = L("AuditLogs");
+    ViewBag.CurrentPageName = PageNames.AuditLogs; }
 @section scripts
 {
     <environment names="Development">
-        <script src="~/view-resources/Views/Logs/Index.js" asp-append-version="true"></script>
+        <script src="~/view-resources/Views/AuditLogs/Index.js" asp-append-version="true"></script>
     </environment>
 
     <environment names="Staging,Production">
-        <script src="~/view-resources/Views/Logs/Index.min.js" asp-append-version="true"></script>
+        <script src="~/view-resources/Views/AuditLogs/Index.min.js" asp-append-version="true"></script>
     </environment>
 }
 <section class="content-header">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                <h1>@L("Logs")</h1>
+                <h1>@L("AuditLogs")</h1>
             </div>
             <div class="col-sm-6">
 
@@ -35,7 +35,7 @@
                                 <!--Use for bulk actions-->
                             </div>
                             <div class="col-md-6">
-                                @await Html.PartialAsync("~/Views/Logs/Index.AdvancedSearch.cshtml")
+                                @await Html.PartialAsync("~/Views/AuditLogs/Index.AdvancedSearch.cshtml")
                             </div>
                         </div>
                     </div>
@@ -46,10 +46,16 @@
                                     <tr>
                                         <th></th>
                                         <th>@L("Id")</th>
-                                        <th>@L("Date")</th>
-                                        <th>@L("Level")</th>
-                                        <th>@L("Logger")</th>
-                                        <th>@L("Message")</th>
+                                        <th>@L("TenantId")</th>
+                                        <th>@L("UserId")</th>
+                                        <th>@L("ServiceName")</th>
+                                        <th>@L("MethodName")</th>
+                                        <th>@L("ClientIpAddress")</th>
+                                        <th>@L("Parameters")</th>
+                                        <th>@L("ReturnValue")</th>
+                                        <th>@L("ExecutionTime")</th>
+                                        <th>@L("ExecutionDuration")</th>
+                                        <th>@L("BrowserInfo")</th>
                                         <th>@L("Exception")</th>
                                     </tr>
                                 </thead>

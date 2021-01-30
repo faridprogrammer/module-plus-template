@@ -1,5 +1,5 @@
 ﻿(function ($) {
-    var _logService = abp.services.app.logs,
+    var _logService = abp.services.app.auditLogs,
         l = abp.localization.getSource('AbpProjectName'),
         _$table = $('#LogsTable');
 
@@ -47,26 +47,56 @@
             },
             {
                 targets: 2,
-                data: 'date',
+                data: 'tenantId',
                 sortable: true
             },
             {
                 targets: 3,
-                data: 'level',
+                data: 'userId',
                 sortable: false
             },
             {
                 targets: 4,
-                data: 'logger',
+                data: 'serviceName',
                 sortable: false
             },
             {
                 targets: 5,
-                data: 'message',
+                data: 'methodName',
                 sortable: false
             },
             {
                 targets: 6,
+                data: 'clientIpAddress',
+                sortable: false
+            },
+            {
+                targets: 7,
+                data: 'parameters',
+                sortable: false
+            },
+            {
+                targets: 8,
+                data: 'returnValue',
+                sortable: false
+            },
+            {
+                targets: 9,
+                data: 'executionTime',
+                sortable: false
+            },
+            {
+                targets: 10,
+                data: 'executionDuration',
+                sortable: false
+            },
+            {
+                targets: 11,
+                data: 'browserInfo',
+                sortable: false
+            },
+            {
+                targets: 12,
                 data: 'exception',
                 sortable: false
             }
