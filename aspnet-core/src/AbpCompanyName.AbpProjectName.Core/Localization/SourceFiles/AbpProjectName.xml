@@ -131,5 +131,10 @@
     <text name="Exception">Exception</text>
     <text name="TenantId">Tenant Id</text>
     <text name="UserId">User Id</text>
+    <text name="Date">Date</text>
+    <text name="Thread">Thread</text>
+    <text name="Level">Level</text>
+    <text name="Logger">Logger</text>
+    <text name="Message">Message</text>
   </texts>
 </localizationDictionary>
