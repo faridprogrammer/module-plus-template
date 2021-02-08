@@ -4,6 +4,7 @@ using AbpCompanyName.AbpProjectName.Accounting;
 using AbpCompanyName.AbpProjectName.Addresses;
 using AbpCompanyName.AbpProjectName.Authorization.Roles;
 using AbpCompanyName.AbpProjectName.Authorization.Users;
+using AbpCompanyName.AbpProjectName.Faqs;
 using AbpCompanyName.AbpProjectName.Invoices;
 using AbpCompanyName.AbpProjectName.Locations;
 using AbpCompanyName.AbpProjectName.MultiTenancy;
@@ -21,12 +22,8 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore
         public DbSet<City> Cities { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Payment> Payments { get; set; }
-
-        public DbSet<Logs.Log> Logs
-        {
-            get;
-            set;
-        }
+        public DbSet<Faq> Faqs { get; set; }
+        public DbSet<Logs.Log> Logs { get; set; }
 
         public AbpProjectNameDbContext(DbContextOptions<AbpProjectNameDbContext> options)
             : base(options)

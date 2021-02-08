@@ -9,6 +9,7 @@ using Abp.Extensions;
 using Abp.Linq.Extensions;
 using AbpCompanyName.AbpProjectName.Authorization;
 using AbpCompanyName.AbpProjectName.Locations.Dto;
+using Microsoft.EntityFrameworkCore;
 
 namespace AbpCompanyName.AbpProjectName.Locations
 {
@@ -25,10 +26,12 @@ namespace AbpCompanyName.AbpProjectName.Locations
         protected override IQueryable<City> CreateFilteredQuery(GetAllCitiesDto input)
         {
             return base.CreateFilteredQuery(input)
+                    .Include(city => city.Country)
+                    .Include(city => city.StateProvince)
+                    
                     .WhereIf(input.CountryId != null, city => city.CountryId == input.CountryId)
                     .WhereIf(input.StateProvinceId != null, city => city.StateProvinceId == input.StateProvinceId)
                     .WhereIf(!input.Name.IsNullOrEmpty(), city => city.Name.Contains(input.Name))
-
                 ;
         }
     }

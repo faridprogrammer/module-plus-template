@@ -50,5 +50,10 @@
         public const string Pages_Logs = "Pages.Logs";
 
         public const string Pages_AuditLogs = "Pages.AuditLogs";
+
+        public const string Pages_Faqs = "Pages.Faqs";
+        public const string Pages_Faqs_Create = "Pages.Faqs.Create";
+        public const string Pages_Faqs_Update = "Pages.Faqs.Update";
+        public const string Pages_Faqs_Delete = "Pages.Faqs.Delete";
     }
 }
