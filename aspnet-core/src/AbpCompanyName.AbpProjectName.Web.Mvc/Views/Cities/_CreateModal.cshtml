@@ -1,51 +1,51 @@
-﻿@using Abp.Authorization.Users
-@using Abp.MultiTenancy
-@using AbpCompanyName.AbpProjectName.MultiTenancy
+﻿@using AbpCompanyName.AbpProjectName.Locations
+@using AbpCompanyName.AbpProjectName.Locations.Dto
 @using AbpCompanyName.AbpProjectName.Web.Models.Common.Modals
+@inject CitiesAppService CitiesAppService
+@inject CountriesAppService CountriesAppService
+@inject StateProvincesAppService StateProvincesAppService
 @{
     Layout = null;
+    var provinces = await StateProvincesAppService.GetAllAsync(new GetAllStateProvincesDto());
 }
-<div class="modal fade" id="TenantCreateModal" tabindex="-1" role="dialog" aria-labelledby="TenantCreateModalLabel" data-backdrop="static">
+<script>
+    @Html.JsObjectVariable(nameof(provinces), provinces.Items)
+</script>
+<div class="modal fade" id="CityCreateModal" tabindex="-1" role="dialog" aria-labelledby="CityCreateModalLabel" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNewTenant")))
-            <form name="tenantCreateForm" role="form" class="form-horizontal">
+            @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNewCity")))
+            <form name="CityCreateForm" role="form" class="form-horizontal">
                 <div class="modal-body">
-                    <div class="form-group row required">
-                        <label class="col-md-3 col-form-label">@L("TenancyName")</label>
-                        <div class="col-md-9">
-                            <input type="text" name="TenancyName" class="form-control" required maxlength="@AbpTenantBase.MaxTenancyNameLength" minlength="2">
-                        </div>
-                    </div>
                     <div class="form-group row required">
                         <label class="col-md-3 col-form-label">@L("Name")</label>
                         <div class="col-md-9">
-                            <input type="text" name="Name" class="form-control" required maxlength="@Tenant.MaxNameLength">
+                            <input type="text" name="Name" class="form-control" required minlength="2" maxlength="100">
                         </div>
                     </div>
                     <div class="form-group row required">
-                        <label class="col-md-3 col-form-label">@L("AdminEmailAddress")</label>
+                        <label class="col-md-3 col-form-label">@L("PhoneCode")</label>
                         <div class="col-md-9">
-                            <input type="email" name="AdminEmailAddress" class="form-control" required maxlength="@AbpUserBase.MaxEmailAddressLength">
+                            <input type="text" name="PhoneCode" class="form-control" required minlength="2" maxlength="20">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label">@L("DatabaseConnectionString") (@L("Optional"))</label>
+                        <label class="col-md-3 col-form-label" for="CountryId">@L("Country")</label>
                         <div class="col-md-9">
-                            <input type="text" name="ConnectionString" class="form-control" maxlength="@AbpTenantBase.MaxConnectionStringLength">
+                            <select id="CountryId" name="CountryId" class="form-control">
+                                <option value=""></option>
+                                @foreach (var item in (await CountriesAppService.GetAllAsync(new GetAllCountriesDto())).Items)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="CreateTenantIsActive">@L("IsActive")</label>
+                        <label class="col-md-3 col-form-label" for="StateProvinceId">@L("Province")</label>
                         <div class="col-md-9">
-                            <input id="CreateTenantIsActive" type="checkbox" name="IsActive" value="true" checked />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-9">
-                            <p>@L("DefaultPasswordIs", AbpCompanyName.AbpProjectName.Authorization.Users.User.DefaultPassword)</p>
+                            <select id="StateProvinceId" name="StateProvinceId" class="form-control">
+                            </select>
                         </div>
                     </div>
                 </div>

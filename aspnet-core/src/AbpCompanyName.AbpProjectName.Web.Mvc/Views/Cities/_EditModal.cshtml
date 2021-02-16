@@ -1,33 +1,67 @@
 ﻿@using AbpCompanyName.AbpProjectName.MultiTenancy.Dto
 @using AbpCompanyName.AbpProjectName.Web.Models.Common.Modals
-@model TenantDto
-@{
+@using AbpCompanyName.AbpProjectName.Locations
+@using AbpCompanyName.AbpProjectName.Locations.Dto
+@using Fody
+@using Abp.Application.Services.Dto
+@inject CitiesAppService CitiesAppService
+@inject CountriesAppService CountriesAppService
+@inject StateProvincesAppService StateProvincesAppService
+
+@model CityDto
+@{ 
+    var provinces = await StateProvincesAppService.GetAllAsync(new GetAllStateProvincesDto());
+    var city = await CitiesAppService.GetAsync(new EntityDto(Model.Id));
     Layout = null;
 }
-@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditTenant")))
+<script>
+    @Html.JsObjectVariable(nameof(provinces), provinces.Items)
+    @Html.JsObjectVariable(nameof(city), city)
+</script>
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditCity")))
 <form name="TenantEditForm" role="form" class="form-horizontal">
     <input type="hidden" name="Id" value="@Model.Id" />
     <div class="modal-body">
         <div class="form-group row required">
-            <label class="col-md-3 col-form-label" for="tenancy-name">@L("TenancyName")</label>
+            <label class="col-md-3 col-form-label">@L("Name")</label>
             <div class="col-md-9">
-                <input id="tenancy-name" type="text" class="form-control" name="TenancyName" value="@Model.TenancyName" required maxlength="64" minlength="2">
+                <input type="text" name="Name" value="@Model.Name" class="form-control" required minlength="2" maxlength="100">
             </div>
         </div>
         <div class="form-group row required">
-            <label class="col-md-3 col-form-label" for="name">@L("Name")</label>
+            <label class="col-md-3 col-form-label">@L("PhoneCode")</label>
             <div class="col-md-9">
-                <input id="name" type="text" class="form-control" name="Name" value="@Model.Name" required maxlength="128">
+                <input type="text" name="PhoneCode" value="@Model.PhoneCode" class="form-control" required minlength="2" maxlength="20">
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-3 col-form-label" for="isactive">@L("IsActive")</label>
+            <label class="col-md-3 col-form-label" for="CountryId">@L("Country")</label>
             <div class="col-md-9">
-                <input id="isactive" type="checkbox" name="IsActive" value="true" @(Model.IsActive ? "checked" : "") />
+                <select id="CountryId" name="CountryId" class="form-control">
+                    <option value=""></option>
+                    @foreach (var item in (await CountriesAppService.GetAllAsync(new GetAllCountriesDto())).Items)
+                    {
+                        if (item.Id == Model.CountryId)
+                        {
+                            <option selected="selected" value="@item.Id">@item.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="StateProvinceId">@L("Province")</label>
+            <div class="col-md-9">
+                <select id="StateProvinceId" name="StateProvinceId" class="form-control">
+                </select>
             </div>
         </div>
     </div>
     @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
 </form>
 
-<script src="~/view-resources/Views/Tenants/_EditModal.js" asp-append-version="true"></script>
+<script src="~/view-resources/Views/Cities/_EditModal.js" asp-append-version="true"></script>

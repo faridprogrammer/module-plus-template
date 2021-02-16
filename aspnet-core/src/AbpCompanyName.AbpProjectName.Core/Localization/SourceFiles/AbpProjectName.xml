@@ -136,5 +136,13 @@
     <text name="Level">Level</text>
     <text name="Logger">Logger</text>
     <text name="Message">Message</text>
+    <text name="Cities">Cities</text>
+    <text name="Countries">Countries</text>
+    <text name="Province">Province</text>
+    <text name="Country">Country</text>
+    <text name="PhoneCode">Phone Code</text>
+    <text name="StateProvince">State/Province</text>
+    <text name="CreateNewCity">Create new city</text>
+    <text name="EditCity">Edit city</text>
   </texts>
 </localizationDictionary>

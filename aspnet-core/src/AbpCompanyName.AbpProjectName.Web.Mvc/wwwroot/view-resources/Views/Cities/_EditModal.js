@@ -4,6 +4,11 @@
         _$modal = $('#CityEditModal'),
         _$form = _$modal.find('form');
 
+    debugger;
+    _$form.find('#CountryId').val(window.city.countryId);
+    populateProvincesSelect();
+    _$form.find('#StateProvinceId').val(window.city.stateProvinceId);
+
     function save() {
         if (!_$form.valid()) {
             return;
@@ -36,4 +41,30 @@
     _$modal.on('shown.bs.modal', function () {
         _$form.find('input[type=text]:first').focus();
     });
+
+    _$form.find('#CountryId').on('change', (e) => {
+        debugger;
+        populateProvincesSelect();
+    });
+
+    function populateProvincesSelect()
+    {
+        var countryId = _$form.find('#CountryId').val();
+        var provinceSelect = _$form.find("#StateProvinceId");
+        provinceSelect
+            .find('option')
+            .remove()
+            .end();
+
+        var defaultOption = new Option("", "");
+        provinceSelect.append(defaultOption);
+
+        for (var i = 0; i < window.provinces.length; i++) {
+            var item = window.provinces[i];
+            if (countryId != item.countryId)
+                continue;
+            var option = new Option(item.name, item.id);
+            provinceSelect.append(option);
+        }
+    }
 })(jQuery);

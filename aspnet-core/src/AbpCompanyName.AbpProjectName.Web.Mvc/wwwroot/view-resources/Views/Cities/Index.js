@@ -1,5 +1,5 @@
 ﻿(function ($) {
-    var _cityService = abp.services.app.cities,
+    var _citiesService = abp.services.app.cities,
         l = abp.localization.getSource('AbpProjectName'),
         _$modal = $('#CityCreateModal'),
         _$form = _$modal.find('form'),
@@ -55,12 +55,14 @@
             {
                 targets: 3,
                 data: 'stateProvince.name',
-                sortable: false
+                sortable: false,
+                defaultContent: ""
             },
             {
                 targets: 4,
                 data: 'country.name',
-                sortable: false
+                sortable: false,
+                defaultContent: ""
             },
             {
                 targets: 5,
@@ -73,7 +75,7 @@
                         `   <button type="button" class="btn btn-sm bg-secondary edit-city" data-city-id="${row.id}" data-toggle="modal" data-target="#CityEditModal">`,
                         `       <i class="fas fa-pencil-alt"></i> ${l('Edit')}`,
                         '   </button>',
-                        `   <button type="button" class="btn btn-sm bg-danger delete-city" data-city-id="${row.id}" data-tenancy-name="${row.name}">`,
+                        `   <button type="button" class="btn btn-sm bg-danger delete-city" data-city-name="${row.name}" data-city-id="${row.id}">`,
                         `       <i class="fas fa-trash"></i> ${l('Delete')}`,
                         '   </button>'
                     ].join('');
@@ -93,7 +95,7 @@
 
         abp.ui.setBusy(_$modal);
 
-        _cityService
+        _citiesService
             .create(city)
             .done(function () {
                 _$modal.modal('hide');
@@ -108,9 +110,9 @@
 
     $(document).on('click', '.delete-city', function () {
         var cityId = $(this).attr('data-city-id');
-        var tenancyName = $(this).attr('data-tenancy-name');
+        var cityName = $(this).attr('data-city-name');
 
-        deleteCity(cityId, tenancyName);
+        deleteCity(cityId, cityName);
     });
 
     $(document).on('click', '.edit-city', function (e) {
@@ -131,16 +133,16 @@
         _$citiesTable.ajax.reload();
     });
 
-    function deleteCity(cityId, tenancyName) {
+    function deleteCity(cityId, cityName) {
         abp.message.confirm(
             abp.utils.formatString(
                 l('AreYouSureWantToDelete'),
-                tenancyName
+                cityName
             ),
             null,
             (isConfirmed) => {
                 if (isConfirmed) {
-                    _cityService
+                    _citiesService
                         .delete({
                             id: cityId
                         })
@@ -155,6 +157,7 @@
 
     _$modal.on('shown.bs.modal', () => {
         _$modal.find('input:not([type=hidden]):first').focus();
+        populateProvincesSelect();
     }).on('hidden.bs.modal', () => {
         _$form.clearForm();
     });
@@ -175,4 +178,30 @@
             return false;
         }
     });
+
+    $('#CountryId').on('change', (e) => {
+        populateProvincesSelect();
+    });
+
+    function populateProvincesSelect()
+    {
+        var countryId = $("#CountryId").val();
+        var provinceSelect = $("#StateProvinceId");
+        provinceSelect
+            .find('option')
+            .remove()
+            .end();
+
+        var defaultOption = new Option("", "");
+        provinceSelect.append(defaultOption);
+
+        for (var i = 0; i < window.provinces.length; i++) {
+            var item = window.provinces[i];
+            if (countryId != item.countryId)
+                continue;
+            var option = new Option(item.name, item.id);
+            provinceSelect.append(option);
+        }
+
+    }
 })(jQuery);

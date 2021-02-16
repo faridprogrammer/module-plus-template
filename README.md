@@ -57,7 +57,8 @@ In the log4net configuration, I have added and `AdoNetAppender` which adds logs 
 ### Basic user interface for all existing entity models
 
 1. Application logs
-2. ... (Under construction)
+2. Cities
+3. ... (Under construction)
 
 # License
 
