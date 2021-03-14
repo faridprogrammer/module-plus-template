@@ -69,12 +69,21 @@ namespace AbpCompanyName.AbpProjectName.Web.Startup
                     )
                 ).AddItem(
                     new MenuItemDefinition(
+                        PageNames.Countries,
+                        L("Countries"),
+                        url: "Countries",
+                        icon: "fas fa-globe",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Countries),
+                        order: 7
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
                         PageNames.Cities,
                         L("Cities"),
                         url: "Cities",
-                        icon: "fas fa-theater-masks",
+                        icon: "fas fa-globe",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Cities),
-                        order: 7
+                        order: 8
                     ));
         }
 

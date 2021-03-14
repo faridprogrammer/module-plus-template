@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
@@ -16,6 +12,7 @@ namespace AbpCompanyName.AbpProjectName.Faqs
     {
         public FaqsAppService(IRepository<Faq> repository) : base(repository)
         {
+            LocalizationSourceName = AbpProjectNameConsts.LocalizationSourceName;
             CreatePermissionName = PermissionNames.Pages_Faqs_Create;
             UpdatePermissionName = PermissionNames.Pages_Faqs_Update;
             DeletePermissionName = PermissionNames.Pages_Faqs_Delete;

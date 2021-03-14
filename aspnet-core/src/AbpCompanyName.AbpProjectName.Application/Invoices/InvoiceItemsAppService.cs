@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
@@ -18,6 +14,7 @@ namespace AbpCompanyName.AbpProjectName.Invoices
     {
         public InvoiceItemsAppService(IRepository<InvoiceItem, Guid> repository) : base(repository)
         {
+            LocalizationSourceName = AbpProjectNameConsts.LocalizationSourceName;
             GetAllPermissionName = PermissionNames.Pages_Invoices;
             CreatePermissionName = PermissionNames.Pages_Invoices_Create;
             UpdatePermissionName = PermissionNames.Pages_Invoices_Edit;

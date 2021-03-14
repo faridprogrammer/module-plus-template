@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
@@ -16,6 +12,7 @@ namespace AbpCompanyName.AbpProjectName.Locations
     {
         public AddressesAppService(IRepository<Address, int> repository) : base(repository)
         {
+            LocalizationSourceName = AbpProjectNameConsts.LocalizationSourceName;
             GetAllPermissionName = PermissionNames.Pages_Addresses;
             CreatePermissionName = PermissionNames.Pages_Addresses_Create;
             UpdatePermissionName = PermissionNames.Pages_Addresses_Edit;

@@ -9,6 +9,7 @@
         public const string Roles = "Roles"; 
         public const string Logs = "Logs"; 
         public const string AuditLogs = "AuditLogs"; 
+        public const string Countries = "Countries"; 
         public const string Cities = "Cities"; 
     }
 }

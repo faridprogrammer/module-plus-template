@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Abp.Application.Services;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
@@ -17,6 +13,7 @@ namespace AbpCompanyName.AbpProjectName.Accounting
     {
         public TransactionsAppService(IRepository<Transaction, int> repository) : base(repository)
         {
+            LocalizationSourceName = AbpProjectNameConsts.LocalizationSourceName;
         }
 
         protected override IQueryable<Transaction> CreateFilteredQuery(GetAllTransactionsDto input)

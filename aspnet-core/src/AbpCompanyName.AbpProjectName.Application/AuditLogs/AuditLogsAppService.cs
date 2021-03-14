@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
@@ -20,6 +18,7 @@ namespace AbpCompanyName.AbpProjectName.AuditLogs
     {
         public AuditLogsAppService(IRepository<AuditLog, long> repository) : base(repository)
         {
+            LocalizationSourceName = AbpProjectNameConsts.LocalizationSourceName;
             GetAllPermissionName = PermissionNames.Pages_AuditLogs;
         }
 

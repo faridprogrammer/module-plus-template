@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
-using AbpCompanyName.AbpProjectName.Authorization.Users;
-using AbpCompanyName.AbpProjectName.Invoices.Dto;
 using AbpCompanyName.AbpProjectName.Payments.Dto;
-using AbpCompanyName.AbpProjectName.Users.Dto;
 
 namespace AbpCompanyName.AbpProjectName.Payments
 {
@@ -17,6 +11,7 @@ namespace AbpCompanyName.AbpProjectName.Payments
     {
         public PaymentsAppService(IRepository<Payment, Guid> repository) : base(repository)
         {
+            LocalizationSourceName = AbpProjectNameConsts.LocalizationSourceName;
         }
 
         protected override IQueryable<Payment> CreateFilteredQuery(GetAllPaymentsDto input)

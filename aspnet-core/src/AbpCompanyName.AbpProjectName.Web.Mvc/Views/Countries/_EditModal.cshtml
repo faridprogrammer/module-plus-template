@@ -1,0 +1,34 @@
+﻿@using AbpCompanyName.AbpProjectName.MultiTenancy.Dto
+@using AbpCompanyName.AbpProjectName.Web.Models.Common.Modals
+@using AbpCompanyName.AbpProjectName.Locations
+@using AbpCompanyName.AbpProjectName.Locations.Dto
+@using Fody
+@using Abp.Application.Services.Dto
+@inject CountriesAppService CountriesAppService
+
+@model CountryDto
+@{ 
+    Layout = null;
+}
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditCity")))
+<form name="TenantEditForm" role="form" class="form-horizontal">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="modal-body">
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label">@L("Name")</label>
+            <div class="col-md-9">
+                <input type="text" name="Name" value="@Model.Name" class="form-control" required minlength="2" maxlength="100">
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label">@L("PhoneCode")</label>
+            <div class="col-md-9">
+                <input type="text" name="PhoneCode" value="@Model.PhoneCode" class="form-control" required minlength="2" maxlength="20">
+            </div>
+        </div>
+
+    </div>
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>
+
+<script src="~/view-resources/Views/Countries/_EditModal.js" asp-append-version="true"></script>
