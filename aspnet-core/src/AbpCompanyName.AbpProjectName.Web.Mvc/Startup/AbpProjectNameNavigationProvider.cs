@@ -54,7 +54,7 @@ namespace AbpCompanyName.AbpProjectName.Web.Startup
                         PageNames.Logs,
                         L("Logs"),
                         url: "Logs",
-                        icon: "fas fa-theater-masks",
+                        icon: "fas fa-history",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Logs),
                         order: 5
                     )
@@ -63,7 +63,7 @@ namespace AbpCompanyName.AbpProjectName.Web.Startup
                         PageNames.AuditLogs,
                         L("AuditLogs"),
                         url: "AuditLogs",
-                        icon: "fas fa-theater-masks",
+                        icon: "fas fa-history",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_AuditLogs),
                         order: 6
                     )
@@ -78,12 +78,21 @@ namespace AbpCompanyName.AbpProjectName.Web.Startup
                     )
                 ).AddItem(
                     new MenuItemDefinition(
+                        PageNames.StateProvinces,
+                        L("StateProvinces"),
+                        url: "StateProvinces",
+                        icon: "fas fa-globe",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_StateProvinces),
+                        order: 8
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
                         PageNames.Cities,
                         L("Cities"),
                         url: "Cities",
                         icon: "fas fa-globe",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Cities),
-                        order: 8
+                        order: 9
                     ));
         }
 

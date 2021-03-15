@@ -145,5 +145,9 @@
     <text name="CreateNewCity">Create new city</text>
     <text name="EditCity">Edit city</text>
     <text name="CountryIsInUse">Country is in use</text>
+    <text name="StateProvinceIsInUse">State province is in use</text>
+    <text name="StateProvinces">State provinces</text>
+    <text name="EditStateProvince">Edit state province</text>
+    <text name="CreateNewStateProvince">Create new state province</text>
   </texts>
 </localizationDictionary>

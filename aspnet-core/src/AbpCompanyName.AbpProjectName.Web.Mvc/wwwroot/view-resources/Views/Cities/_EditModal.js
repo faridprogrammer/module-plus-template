@@ -4,7 +4,6 @@
         _$modal = $('#CityEditModal'),
         _$form = _$modal.find('form');
 
-    debugger;
     _$form.find('#CountryId').val(window.city.countryId);
     populateProvincesSelect();
     _$form.find('#StateProvinceId').val(window.city.stateProvinceId);

@@ -8,7 +8,7 @@ using Abp.Application.Services.Dto;
 namespace AbpCompanyName.AbpProjectName.Locations.Dto
 {
 
-    public class GetAllStateProvincesDto: PagedAndSortedResultRequestDto
+    public class GetAllStateProvincesDto : PagedAndSortedResultRequestDto
     {
         public string Name
         {

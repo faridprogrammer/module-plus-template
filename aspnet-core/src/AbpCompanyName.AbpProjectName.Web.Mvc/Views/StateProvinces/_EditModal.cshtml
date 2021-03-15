@@ -1,0 +1,57 @@
+﻿@using AbpCompanyName.AbpProjectName.MultiTenancy.Dto
+@using AbpCompanyName.AbpProjectName.Web.Models.Common.Modals
+@using AbpCompanyName.AbpProjectName.Locations
+@using AbpCompanyName.AbpProjectName.Locations.Dto
+@using Fody
+@using Abp.Application.Services.Dto
+@inject CountriesAppService CountriesAppService
+@inject StateProvincesAppService StateProvincesAppService
+
+@model StateProvinceDto
+@{ 
+    var stateProvince = await StateProvincesAppService.GetAsync(new EntityDto(Model.Id));
+    Layout = null;
+}
+<script>
+    @Html.JsObjectVariable(nameof(stateProvince), stateProvince)
+</script>
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditStateProvince")))
+<form name="TenantEditForm" role="form" class="form-horizontal">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="modal-body">
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label">@L("Name")</label>
+            <div class="col-md-9">
+                <input type="text" name="Name" value="@Model.Name" class="form-control" required minlength="2" maxlength="100">
+            </div>
+        </div>
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label">@L("PhoneCode")</label>
+            <div class="col-md-9">
+                <input type="text" name="PhoneCode" value="@Model.PhoneCode" class="form-control" required minlength="2" maxlength="20">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="CountryId">@L("Country")</label>
+            <div class="col-md-9">
+                <select id="CountryId" name="CountryId" class="form-control">
+                    <option value=""></option>
+                    @foreach (var item in (await CountriesAppService.GetAllAsync(new GetAllCountriesDto())).Items)
+                    {
+                        if (item.Id == Model.CountryId)
+                        {
+                            <option selected="selected" value="@item.Id">@item.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>
+
+<script src="~/view-resources/Views/StateProvinces/_EditModal.js" asp-append-version="true"></script>
