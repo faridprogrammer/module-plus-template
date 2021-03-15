@@ -22,8 +22,8 @@ import { TenantSettingsComponent } from './tenant-settings/tenant-settings.compo
                     { path: 'roles', component: RolesComponent, data: { permission: 'Pages.Roles' }, canActivate: [AppRouteGuard] },
                     { path: 'tenant-settings', component: TenantSettingsComponent, data: { permission: 'Pages.TenantSettings' }, canActivate: [AppRouteGuard] },
                     { path: 'tenants', component: TenantsComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
-                    { path: 'about', component: AboutComponent },
-                    { path: 'update-password', component: ChangePasswordComponent }
+                    { path: 'about', component: AboutComponent, canActivate: [AppRouteGuard] },
+                    { path: 'update-password', component: ChangePasswordComponent, canActivate: [AppRouteGuard] }
                 ]
             }
         ])
