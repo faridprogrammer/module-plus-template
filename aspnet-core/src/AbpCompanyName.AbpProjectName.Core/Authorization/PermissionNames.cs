@@ -55,5 +55,11 @@
         public const string Pages_Faqs_Create = "Pages.Faqs.Create";
         public const string Pages_Faqs_Update = "Pages.Faqs.Update";
         public const string Pages_Faqs_Delete = "Pages.Faqs.Delete";
+
+        public const string Pages_Tickets = "Pages.Tickets";
+        public const string Pages_Tickets_Create = "Pages.Tickets.Create";
+        public const string Pages_Tickets_Update = "Pages.Tickets.Update";
+        public const string Pages_Tickets_Delete = "Pages.Tickets.Delete";
+
     }
 }

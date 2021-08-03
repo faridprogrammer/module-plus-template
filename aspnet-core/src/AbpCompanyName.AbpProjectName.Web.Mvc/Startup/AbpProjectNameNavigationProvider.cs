@@ -102,6 +102,14 @@ namespace AbpCompanyName.AbpProjectName.Web.Startup
                         icon: "fas fa-question",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Faqs),
                         order: 10
+                    )).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Tickets,
+                        L("Tickets"),
+                        url: "Tickets",
+                        icon: "fas fa-question",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Tickets),
+                        order: 11
                     ));
         }
 

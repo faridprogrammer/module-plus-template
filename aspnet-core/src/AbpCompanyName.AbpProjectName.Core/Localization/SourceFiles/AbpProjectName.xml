@@ -155,5 +155,18 @@
     <text name="Answer">Answer</text>
     <text name="CreateNewFaq">Create new faq</text>
     <text name="EditFaq">Edit faq</text>
+    <text name="ChooseAState">Choose a state</text>
+    <text name="Created">Created</text>
+    <text name="Pending">Pending</text>
+    <text name="Resolved">Resolved</text>
+    <text name="MarkAsResolved">Mark as resolved</text>
+    <text name="YourAnswer">Your answer</text>
+    <text name="Replies">Replies</text>
+    <text name="Body">Body</text>
+    <text name="Creator">Creator</text>
+    <text name="Title">Title</text>
+    <text name="CreationTime">CreationTime</text>
+    <text name="Tickets">Tickets</text>
+    <text name="State">State</text>
   </texts>
 </localizationDictionary>

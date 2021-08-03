@@ -53,6 +53,11 @@ namespace AbpCompanyName.AbpProjectName.Authorization
             context.CreatePermission(PermissionNames.Pages_Faqs_Create, L("CreateFaqs"));
             context.CreatePermission(PermissionNames.Pages_Faqs_Update, L("EditFaqs"));
             context.CreatePermission(PermissionNames.Pages_Faqs_Delete, L("DeleteFaqs"));
+            
+            context.CreatePermission(PermissionNames.Pages_Tickets, L("Tickets"));
+            context.CreatePermission(PermissionNames.Pages_Tickets_Create, L("CreateTickets"));
+            context.CreatePermission(PermissionNames.Pages_Tickets_Update, L("EditTickets"));
+            context.CreatePermission(PermissionNames.Pages_Tickets_Delete, L("DeleteTickets"));
 
             context.CreatePermission(PermissionNames.Pages_Logs, L("Logs"));
             context.CreatePermission(PermissionNames.Pages_AuditLogs, L("AuditLogs"));

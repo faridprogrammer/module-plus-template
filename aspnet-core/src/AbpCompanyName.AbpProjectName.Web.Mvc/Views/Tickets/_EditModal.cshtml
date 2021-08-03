@@ -1,0 +1,85 @@
+﻿@using AbpCompanyName.AbpProjectName.Web.Models.Common.Modals
+@using AbpCompanyName.AbpProjectName.Ticketing
+@using AbpCompanyName.AbpProjectName.Ticketing.Dto
+@using AbpCompanyName.AbpProjectName.Users
+@using Abp.Application.Services.Dto
+@inject TicketsAppService TicketsAppService
+@inject TicketRepliesAppService TicketRepliesAppService
+@inject InternalUserAppService InternalUserAppService
+
+@model TicketDto
+@{
+    Layout = null;
+    var ticket = await TicketsAppService.GetAsync(new EntityDto(Model.Id));
+    var creator = await InternalUserAppService.GetUser(Model.CreatorUserId.ToString());
+    var replies = await TicketRepliesAppService.GetAllAsync(new GetAllTickeRepliesDto
+    {
+        Sorting = "CreationTime Asc",
+        TicketId = ticket.Id
+    });
+}
+<script>
+    @Html.JsObjectVariable(nameof(ticket), ticket)
+</script>
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Edit")))
+<form name="TicketEditForm" role="form" class="form-horizontal">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div class="modal-body">
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("Title")</label>
+            <div class="col-md-9">
+                <input type="text" disabled name="Question" value="@Model.Title" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("CreationTime")</label>
+            <div class="col-md-9">
+                <input type="text" disabled name="Answer" value="@Model.CreationTime" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("Creator")</label>
+            <div class="col-md-9">
+                <input type="text" disabled name="Creator" value="@creator.FullName" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("Body")</label>
+            <div class="col-md-9">
+                <p>@ticket.Body</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("Replies")</label>
+            <div class="col-md-9">
+                @foreach (var item in replies.Items)
+                {
+                    var replyCreator = await InternalUserAppService.GetUser(item.CreatorUserId.ToString());
+                    <hr />
+                    <div>
+                        <div><b>@item.CreationTime</b> (@replyCreator.FullName)</div>
+                        <div>@item.Body.Substring(0, Math.Min(item.Body.Length, 2000)) @(item.Body.Length>= 2000 ? "...": "") </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">@L("YourAnswer")</label>
+            <div class="col-md-9">
+                <textarea rows="5" style="width: 100%" name="NewAnswer"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label"></label>
+            <div class="col-md-9">
+                <label >
+                    <input type="checkbox"  name="MarkAsResolved" />
+                    @L("MarkAsResolved")
+                </label>
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+</form>
+
+<script src="~/view-resources/Views/Tickets/_EditModal.js" asp-append-version="true"></script>

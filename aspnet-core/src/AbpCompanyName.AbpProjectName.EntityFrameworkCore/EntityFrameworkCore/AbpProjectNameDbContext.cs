@@ -23,6 +23,8 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Faq> Faqs { get; set; }
+        public DbSet<Ticketing.Ticket> Tickets { get; set; }
+        public DbSet<Ticketing.TicketReply> TicketReplies { get; set; }
         public DbSet<Logs.Log> Logs { get; set; }
 
         public AbpProjectNameDbContext(DbContextOptions<AbpProjectNameDbContext> options)
