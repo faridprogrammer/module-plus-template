@@ -58,8 +58,10 @@ In the log4net configuration, I have added and `AdoNetAppender` which adds logs 
 
 1. Application logs
 2. Cities
-3. Countries
-4. ... (Under construction)
+3. StateProvinces
+4. Countries
+5. Faqs
+6. ... (Under construction)
 
 # License
 

@@ -149,5 +149,11 @@
     <text name="StateProvinces">State provinces</text>
     <text name="EditStateProvince">Edit state province</text>
     <text name="CreateNewStateProvince">Create new state province</text>
+    <text name="Faqs">Faqs</text>
+    <text name="SortOrder">Sort order</text>
+    <text name="Question">Question</text>
+    <text name="Answer">Answer</text>
+    <text name="CreateNewFaq">Create new faq</text>
+    <text name="EditFaq">Edit faq</text>
   </texts>
 </localizationDictionary>

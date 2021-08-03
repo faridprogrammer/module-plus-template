@@ -93,6 +93,15 @@ namespace AbpCompanyName.AbpProjectName.Web.Startup
                         icon: "fas fa-globe",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Cities),
                         order: 9
+                    )
+                ).AddItem(
+                    new MenuItemDefinition(
+                        PageNames.Faqs,
+                        L("Faqs"),
+                        url: "Faqs",
+                        icon: "fas fa-question",
+                        permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Faqs),
+                        order: 10
                     ));
         }
 

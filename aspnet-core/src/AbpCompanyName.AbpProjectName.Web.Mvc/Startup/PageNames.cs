@@ -12,5 +12,6 @@
         public const string Countries = "Countries"; 
         public const string Cities = "Cities"; 
         public const string StateProvinces = "StateProvinces"; 
+        public const string Faqs = "Faqs"; 
     }
 }
