@@ -19,6 +19,7 @@ User Interface is based on [AdminLTE theme](https://github.com/ColorlibHQ/AdminL
 5. State provinces
 6. Cities
 7. Addresses
+8. Faq
 
 ### Notes on entities
 
@@ -41,6 +42,7 @@ There is already implemented simple `AsyncCrudApplicationService` for each of th
 7. `CountriesAppService`
 8. `StateProvincesAppService`
 9. `PaymentsAppService`
+10. `FaqsAppService`
 
 You can learn about application services [here](https://aspnetboilerplate.com/Pages/Documents/Application-Services)
 
