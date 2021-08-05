@@ -19,7 +19,8 @@ User Interface is based on [AdminLTE theme](https://github.com/ColorlibHQ/AdminL
 5. State provinces
 6. Cities
 7. Addresses
-8. Faq
+8. Faqs
+9. Tickets
 
 ### Notes on entities
 
@@ -43,6 +44,7 @@ There is already implemented simple `AsyncCrudApplicationService` for each of th
 8. `StateProvincesAppService`
 9. `PaymentsAppService`
 10. `FaqsAppService`
+11. `TicketsAppService`
 
 You can learn about application services [here](https://aspnetboilerplate.com/Pages/Documents/Application-Services)
 
@@ -63,7 +65,8 @@ In the log4net configuration, I have added and `AdoNetAppender` which adds logs 
 3. StateProvinces
 4. Countries
 5. Faqs
-6. ... (Under construction)
+6. Tickets
+7. ... (Under construction)
 
 # License
 
