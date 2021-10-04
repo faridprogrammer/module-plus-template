@@ -18,6 +18,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
+      working-directory: ./aspnet-core
       run: dotnet restore
     - name: Build
       working-directory: ./aspnet-core
