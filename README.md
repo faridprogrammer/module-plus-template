@@ -1,3 +1,5 @@
+[![.NET Backend](https://github.com/faridprogrammer/module-plus-template/actions/workflows/dotnet.yml/badge.svg)](https://github.com/faridprogrammer/module-plus-template/actions/workflows/dotnet.yml)
+
 # Important
 
 This repository is based on the original **ASP.NET Core MVC / Angular startup** template [here](https://github.com/aspnetboilerplate/module-zero-core-template).
