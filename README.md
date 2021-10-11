@@ -1,5 +1,7 @@
 [![.NET Backend](https://github.com/faridprogrammer/module-plus-template/actions/workflows/dotnet.yml/badge.svg)](https://github.com/faridprogrammer/module-plus-template/actions/workflows/dotnet.yml)
 
+[![CodeScene Code Health](https://codescene.io/projects/19415/status-badges/code-health)](https://codescene.io/projects/19415)
+
 # Important
 
 This repository is based on the original **ASP.NET Core MVC / Angular startup** template [here](https://github.com/aspnetboilerplate/module-zero-core-template).
@@ -69,10 +71,6 @@ In the log4net configuration, I have added and `AdoNetAppender` which adds logs 
 5. Faqs
 6. Tickets
 7. ... (Under construction)
-
-### Code analysis results
-
-[![CodeScene general](https://codescene.io/images/analyzed-by-codescene-badge.svg)](https://codescene.io/projects/19415)
 
 # License
 
