@@ -1,5 +1,4 @@
 [![.NET Backend](https://github.com/faridprogrammer/module-plus-template/actions/workflows/dotnet.yml/badge.svg)](https://github.com/faridprogrammer/module-plus-template/actions/workflows/dotnet.yml)
-
 [![CodeScene Code Health](https://codescene.io/projects/19415/status-badges/code-health)](https://codescene.io/projects/19415)
 
 # Important
