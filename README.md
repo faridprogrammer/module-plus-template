@@ -70,6 +70,10 @@ In the log4net configuration, I have added and `AdoNetAppender` which adds logs 
 6. Tickets
 7. ... (Under construction)
 
+### Code analysis results
+
+[![CodeScene general](https://codescene.io/images/analyzed-by-codescene-badge.svg)](https://codescene.io/projects/19415)
+
 # License
 
 [MIT](LICENSE).
